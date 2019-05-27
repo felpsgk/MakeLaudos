@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Make Laudo</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Make Laudo</string>
+    <string name="nav_header_subtitle">Crie seu laudo em PDF</string>
+    <string name="nav_header_desc">Menu</string>
+    <string name="action_settings">Opções</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="teste">teste</string>
+</resources>

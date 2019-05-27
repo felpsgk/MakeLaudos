@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="azul">#3c79d8</color>
+    <color name="azulCinza">#4e607c</color>
+    <color name="azulClaro">#7c9ac9</color>
+    <color name="preto">#000000</color>
+    <color name="hint">#3f3f3f</color>
+</resources>

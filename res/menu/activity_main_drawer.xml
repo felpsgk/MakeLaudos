@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <!--android:icon="@drawable/ic_menu_send"-->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/btnEmpresa"
+            android:title="Cadastrar empresa" />
+        <item
+            android:id="@+id/btnUsuario"
+            android:title="Cadastrar utilizador"/>
+        <item
+            android:id="@+id/btnAparelho"
+            android:title="Cadastrar aparelho"/>
+        <item
+            android:id="@+id/btnStart"
+            android:title="Começar testes"/>
+    </group>
+
+    <item android:title="Ajuda">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:title="teste" />
+        </menu>
+    </item>
+</menu>
