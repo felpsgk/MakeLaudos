@@ -20,15 +20,14 @@ public class EmpresaDAO {
         bdo = new bdOpenHelper(c);
     }
 
-    public Boolean newEmpresa (Empresa e){
+    public Boolean newEmpresa (Empresa e, String oqsalvar){
         ContentValues val;
         long result;
         sqldb = bdo.getWritableDatabase();
         val = new ContentValues();
         val.put("nome", e.getNome());
         val.put("endereco", e.getEndereco());
-        val.put("telefone", e.getTelefone());
-        val.put("email", e.getEmail());
+        val.put(oqsalvar, e.getContato());
         result = sqldb.insert("empresa",null,val);
         sqldb.close();
         if (result == -1) {
@@ -47,9 +46,12 @@ public class EmpresaDAO {
             e = new Empresa();
             e.setId(result.getInt(0));
             e.setNome(result.getString(1));
-            e.setEmail(result.getString(2));
-            e.setEndereco(result.getString(3));
-            e.setTelefone(result.getString(4));
+            e.setEndereco(result.getString(2));
+            if(result.getString(3)==null){
+                e.setContato(result.getString(4));
+            } else {
+                e.setContato(result.getString(3));
+            }
             empresas.add(e);
         }
         sqldb.close();

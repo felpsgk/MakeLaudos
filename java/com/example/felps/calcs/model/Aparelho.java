@@ -1,6 +1,8 @@
 package com.example.felps.calcs.model;
 
-public class Aparelho {
+import java.io.Serializable;
+
+public class Aparelho implements Serializable {
 
     private int id;
     private String nome;

@@ -23,6 +23,7 @@ import com.example.felps.calcs.model.Aparelho;
 import com.example.felps.calcs.model.Empresa;
 import com.example.felps.calcs.model.Usuario;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,7 +96,13 @@ public class startAnaliseFrag extends Fragment {
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 valoresFrag frag = new valoresFrag();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("usuario", (Serializable) cboxUsuario.getSelectedItem());
+                bundle.putSerializable("empresa", (Serializable) cboxEmpresa.getSelectedItem());
+                bundle.putSerializable("aparelho", (Serializable) cboxAparelho.getSelectedItem());
+                frag.setArguments(bundle);
                 ft.replace(R.id.fragment_container, frag);
+                ft.addToBackStack(null);
                 ft.commit();
             }
         });

@@ -1,21 +1,30 @@
 package com.example.felps.calcs.model;
 
-public class Empresa {
+import java.io.Serializable;
+
+public class Empresa implements Serializable {
     private int id;
     private String nome;
     private String endereco;
-    private String telefone;
-    private String email;
+    private String contato;
+
 
     public Empresa() {
     }
 
-    public Empresa(int id, String nome, String endereco, String telefone, String email) {
+    public Empresa(int id, String nome, String endereco, String contato) {
         this.id = id;
         this.nome = nome;
         this.endereco = endereco;
-        this.telefone = telefone;
-        this.email = email;
+        this.contato = contato;
+    }
+
+    public String getContato() {
+        return contato;
+    }
+
+    public void setContato(String contato) {
+        this.contato = contato;
     }
 
     public int getId() {
@@ -40,21 +49,5 @@ public class Empresa {
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 }

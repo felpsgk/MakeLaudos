@@ -39,18 +39,20 @@ public class cadEmpresaFrag extends Fragment {
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String oqsalvar;
                 try {
                     Empresa e = new Empresa();
                     e.setNome(txtNomeEmpresa.getText().toString());
                     e.setEndereco(txtEnderecoEmpresa.getText().toString());
-
                     if(intOrString(txtContato.getText().toString())){
-                        e.setTelefone(txtContato.getText().toString());
+                        oqsalvar = "telefone";
+                        e.setContato(txtContato.getText().toString());
                     } else {
-                        e.setEmail(txtContato.getText().toString());
+                        oqsalvar = "email";
+                        e.setContato(txtContato.getText().toString());
                     }
                     EmpresaDAO edao = new EmpresaDAO(v.getContext());
-                    if(edao.newEmpresa(e) == true){
+                    if(edao.newEmpresa(e, oqsalvar) == true){
                         Empresa en = new Empresa();
                         EmpresaDAO endao = new EmpresaDAO(v.getContext());
                         AlertDialog.Builder dlg = new AlertDialog.Builder(v.getContext());
