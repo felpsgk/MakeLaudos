@@ -47,8 +47,8 @@ public class startAnaliseFrag extends Fragment {
         View v = inflater.inflate(R.layout.fragment_start_analise, container, false);
 
         popularCbox(v);
-        txtNomeEquip = v.findViewById(R.id.txtNomeEquip);
-        txtNumSerie = v.findViewById(R.id.txtNumSerie);
+        txtNomeEquip = v.findViewById(R.id.txtNomeAparelho);
+        txtNumSerie = v.findViewById(R.id.txtNSerie);
         btnIniciar = v.findViewById(R.id.btnIniciar);
         cboxEmpresa = v.findViewById(R.id.cboxEmpresa);
         cboxEmpresa.setAdapter(empresaAdapter);
@@ -82,7 +82,7 @@ public class startAnaliseFrag extends Fragment {
         cboxAparelho.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getContext(), "Aparelho '"+listAparelho.get(position).getNome()+"' selecionado", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Aparelho '"+listAparelho.get(position).getNomeAparelho()+"' selecionado", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -235,7 +235,7 @@ public class startAnaliseFrag extends Fragment {
 
             Aparelho a = listAparelho.get(position);
             holder.aparelhoId.setText(String.valueOf(a.getId()));
-            holder.aparelhoNome.setText(a.getNome());
+            holder.aparelhoNome.setText(a.getNomeAparelho());
 
             return aparelhoView;
         }

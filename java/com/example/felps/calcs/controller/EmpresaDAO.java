@@ -1,16 +1,13 @@
 package com.example.felps.calcs.controller;
 
-import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import com.example.felps.calcs.model.Empresa;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class EmpresaDAO {
     static SQLiteDatabase sqldb;
@@ -25,9 +22,10 @@ public class EmpresaDAO {
         long result;
         sqldb = bdo.getWritableDatabase();
         val = new ContentValues();
-        val.put("nome", e.getNome());
+        val.put("nomeEmpresa", e.getNome());
         val.put("endereco", e.getEndereco());
         val.put(oqsalvar, e.getContato());
+        val.put("tipoEmpresa",e.getTipo());
         result = sqldb.insert("empresa",null,val);
         sqldb.close();
         if (result == -1) {
@@ -41,7 +39,7 @@ public class EmpresaDAO {
         ArrayList<Empresa> empresas = new ArrayList<Empresa>();
         sqldb = bdo.getWritableDatabase();
         Empresa e = null;
-        Cursor result = sqldb.query("EMPRESA",new String[]{"ID","NOME","ENDERECO","TELEFONE","EMAIL"},null,null,null,null,null,null);
+        Cursor result = sqldb.query("EMPRESA",new String[]{"ID","NOMEEMPRESA","ENDERECO","TELEFONE","EMAIL", "TIPOEMPRESA"},null,null,null,null,null,null);
         while (result.moveToNext()){
             e = new Empresa();
             e.setId(result.getInt(0));
@@ -52,6 +50,7 @@ public class EmpresaDAO {
             } else {
                 e.setContato(result.getString(3));
             }
+            e.setTipo(result.getInt(5));
             empresas.add(e);
         }
         sqldb.close();
@@ -61,11 +60,11 @@ public class EmpresaDAO {
     public Empresa searchEmpresa(String nome){
         Empresa e = new Empresa();
         sqldb = bdo.getWritableDatabase();
-        Cursor result = sqldb.rawQuery("SELECT * FROM EMPRESA WHERE NOME = ?",new String[]{nome});
+        Cursor result = sqldb.rawQuery("SELECT * FROM EMPRESA WHERE NOMEEMPRESA = ?",new String[]{nome});
         if(result.getCount()>0){
             result.moveToFirst();
             e.setId(result.getInt(result.getColumnIndexOrThrow("id")));
-            e.setNome(result.getString(result.getColumnIndexOrThrow("nome")));
+            e.setNome(result.getString(result.getColumnIndexOrThrow("nomeEmpresa")));
             return e;
         }
         result.close();

@@ -9,13 +9,16 @@
             android:title="Cadastrar empresa" />
         <item
             android:id="@+id/btnUsuario"
-            android:title="Cadastrar utilizador"/>
+            android:title="Cadastrar utilizador" />
         <item
             android:id="@+id/btnAparelho"
-            android:title="Cadastrar aparelho"/>
+            android:title="Cadastrar aparelho" />
+        <item
+            android:id="@+id/btnCaracteristica"
+            android:title="Cadastrar característica" />
         <item
             android:id="@+id/btnStart"
-            android:title="Começar testes"/>
+            android:title="Começar testes" />
     </group>
 
     <item android:title="Ajuda">

@@ -5,22 +5,25 @@ import java.io.Serializable;
 public class Aparelho implements Serializable {
 
     private int id;
-    private String nome;
-    private int nserie;
+    private String nomeAparelho;
+    private int nserieAparelho;
+    private int fabricanteAparelho;
+    private String categoriaAparelho;
+    private int modeloAparelho;
+    private int empresa;
 
     public Aparelho() {
 
     }
 
-    public Aparelho(int id, String nome, int nserie) {
+    public Aparelho(int id, String nomeAparelho, int nserieAparelho, int fabricanteAparelho, String categoriaAparelho, int modeloAparelho, int empresa) {
         this.id = id;
-        this.nome = nome;
-        this.nserie = nserie;
-    }
-
-    @Override
-    public String toString() {
-        return nome;
+        this.nomeAparelho = nomeAparelho;
+        this.nserieAparelho = nserieAparelho;
+        this.fabricanteAparelho = fabricanteAparelho;
+        this.categoriaAparelho = categoriaAparelho;
+        this.modeloAparelho = modeloAparelho;
+        this.empresa = empresa;
     }
 
     public int getId() {
@@ -31,19 +34,51 @@ public class Aparelho implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeAparelho() {
+        return nomeAparelho;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeAparelho(String nomeAparelho) {
+        this.nomeAparelho = nomeAparelho;
     }
 
-    public int getNserie() {
-        return nserie;
+    public int getNserieAparelho() {
+        return nserieAparelho;
     }
 
-    public void setNserie(int nserie) {
-        this.nserie = nserie;
+    public void setNserieAparelho(int nserieAparelho) {
+        this.nserieAparelho = nserieAparelho;
+    }
+
+    public int getFabricanteAparelho() {
+        return fabricanteAparelho;
+    }
+
+    public void setFabricanteAparelho(int fabricanteAparelho) {
+        this.fabricanteAparelho = fabricanteAparelho;
+    }
+
+    public String getCategoriaAparelho() {
+        return categoriaAparelho;
+    }
+
+    public void setCategoriaAparelho(String categoriaAparelho) {
+        this.categoriaAparelho = categoriaAparelho;
+    }
+
+    public int getModeloAparelho() {
+        return modeloAparelho;
+    }
+
+    public void setModeloAparelho(int modeloAparelho) {
+        this.modeloAparelho = modeloAparelho;
+    }
+
+    public int getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(int empresa) {
+        this.empresa = empresa;
     }
 }

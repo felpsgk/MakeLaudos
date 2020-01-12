@@ -71,6 +71,23 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtEnderecoEmpresa" />
 
+            <EditText
+                android:id="@+id/txtTipoEmpresa"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:ems="10"
+                android:hint="tipo de empresa (1-aparelho 2-medidor)"
+                android:inputType="number"
+                android:singleLine="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtContatoEmpresa" />
+
             <Button
                 android:id="@+id/btnCadastrar"
                 android:layout_width="0dp"
@@ -85,7 +102,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtContatoEmpresa" />
+                app:layout_constraintTop_toBottomOf="@+id/txtTipoEmpresa" />
 
         </android.support.constraint.ConstraintLayout>
     </FrameLayout>

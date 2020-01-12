@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import com.example.felps.calcs.model.Usuario;
 
@@ -23,9 +22,10 @@ public class UsuarioDAO {
         long result;
         sqldb = bdo.getWritableDatabase();
         val = new ContentValues();
-        val.put("nome", u.getNome());
-        val.put("endereco", u.getDocumento());
+        val.put("nomeUsuario", u.getNome());
+        val.put("documento", u.getDocumento());
         val.put(oqsalvar, u.getContato());
+        val.put("Usuario_idEmpresa",u.getEmpresa());
         result = sqldb.insert("usuario",null,val);
         sqldb.close();
         if (result == -1) {
@@ -39,7 +39,7 @@ public class UsuarioDAO {
         ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
         sqldb = bdo.getWritableDatabase();
         Usuario u = null;
-        Cursor result = sqldb.query("USUARIO",new String[]{"ID","NOME","ENDERECO","TELEFONE","EMAIL"},null,null,null,null,null,null);
+        Cursor result = sqldb.query("USUARIO",new String[]{"ID","NOMEUSUARIO","documento","telefone","EMAIL"},null,null,null,null,null,null);
         while (result.moveToNext()){
             u = new Usuario();
             u.setId(result.getInt(0));
@@ -59,11 +59,11 @@ public class UsuarioDAO {
     public Usuario searchUsuario(String nome){
         Usuario u = new Usuario();
         sqldb = bdo.getWritableDatabase();
-        Cursor result = sqldb.rawQuery("SELECT * FROM USUARIO WHERE NOME = ?",new String[]{nome});
+        Cursor result = sqldb.rawQuery("SELECT * FROM USUARIO WHERE NOMEUSUARIO = ?",new String[]{nome});
         if(result.getCount()>0){
             result.moveToFirst();
             u.setId(result.getInt(result.getColumnIndexOrThrow("id")));
-            u.setNome(result.getString(result.getColumnIndexOrThrow("nome")));
+            u.setNome(result.getString(result.getColumnIndexOrThrow("nomeUsuario")));
             return u;
         }
         result.close();

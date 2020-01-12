@@ -20,6 +20,7 @@ public class cadEmpresaFrag extends Fragment {
     private EditText txtNomeEmpresa;
     private EditText txtEnderecoEmpresa;
     private EditText txtContato;
+    private EditText txtTipo;
     private Button btnCadastrar;
 
 
@@ -34,6 +35,7 @@ public class cadEmpresaFrag extends Fragment {
         txtNomeEmpresa = v.findViewById(R.id.txtNomeEmpresa);
         txtEnderecoEmpresa = v.findViewById(R.id.txtEnderecoEmpresa);
         txtContato = v.findViewById(R.id.txtContatoEmpresa);
+        txtTipo = v.findViewById(R.id.txtTipoEmpresa);
         btnCadastrar = v.findViewById(R.id.btnCadastrar);
         //METODO ABAIXO CRIA EMPRESA E SALVA EMPRESA NO BANCO
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +46,7 @@ public class cadEmpresaFrag extends Fragment {
                     Empresa e = new Empresa();
                     e.setNome(txtNomeEmpresa.getText().toString());
                     e.setEndereco(txtEnderecoEmpresa.getText().toString());
+                    e.setTipo(Integer.parseInt(txtTipo.getText().toString()));
                     if(intOrString(txtContato.getText().toString())){
                         oqsalvar = "telefone";
                         e.setContato(txtContato.getText().toString());

@@ -23,8 +23,12 @@ public class AparelhoDAO {
         long result;
         sqldb = bdo.getWritableDatabase();
         val = new ContentValues();
-        val.put("nome", a.getNome());
-        val.put("nserie", a.getNserie());
+        val.put("nomeAparelho", a.getNomeAparelho());
+        val.put("nserieAparelho", a.getNserieAparelho());
+        val.put("fabricanteAparelho", a.getFabricanteAparelho());
+        val.put("categoriaAparelho", a.getCategoriaAparelho());
+        val.put("modeloAparelho", a.getModeloAparelho());
+        val.put("Aparelho_idEmpresa", a.getEmpresa());
         result = sqldb.insert("aparelho",null,val);
         sqldb.close();
         if (result == -1) {
@@ -38,12 +42,12 @@ public class AparelhoDAO {
         ArrayList<Aparelho> aparelhos = new ArrayList<Aparelho>();
         sqldb = bdo.getWritableDatabase();
         Aparelho a = null;
-        Cursor result = sqldb.query("APARELHO",new String[]{"ID","NOME","NSERIE"},null,null,null,null,null,null);
+        Cursor result = sqldb.query("APARELHO",new String[]{"ID","nomeAparelho","nserieAparelho"},null,null,null,null,null,null);
         while (result.moveToNext()){
             a = new Aparelho();
             a.setId(result.getInt(0));
-            a.setNome(result.getString(1));
-            a.setNserie(result.getInt(2));
+            a.setNomeAparelho(result.getString(1));
+            a.setNserieAparelho(result.getInt(2));
             aparelhos.add(a);
         }
         sqldb.close();
@@ -53,11 +57,11 @@ public class AparelhoDAO {
     public Aparelho searchAparelho(String nome){
         Aparelho a = new Aparelho();
         sqldb = bdo.getWritableDatabase();
-        Cursor result = sqldb.rawQuery("SELECT * FROM APARELHO WHERE NOME = ?",new String[]{nome});
+        Cursor result = sqldb.rawQuery("SELECT * FROM APARELHO WHERE nomeAparelho = ?",new String[]{nome});
         if(result.getCount()>0){
             result.moveToFirst();
             a.setId(result.getInt(result.getColumnIndexOrThrow("id")));
-            a.setNome(result.getString(result.getColumnIndexOrThrow("nome")));
+            a.setNomeAparelho(result.getString(result.getColumnIndexOrThrow("nomeAparelho")));
             return a;
         }
         result.close();

@@ -18,10 +18,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+import com.itextpdf.text.DocumentException;
 
 import com.example.felps.calcs.R;
 import com.example.felps.calcs.controller.bdOpenHelper;
-import com.itextpdf.text.DocumentException;
 
 import java.io.FileNotFoundException;
 
@@ -191,6 +191,12 @@ public class MainActivity extends AppCompatActivity
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
             cadAparelhoFrag frag = new cadAparelhoFrag();
+            ft.replace(R.id.fragment_container, frag);
+            ft.commit();
+        }else if (id == R.id.btnCaracteristica) {
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            cadCaracteristicaFrag frag = new cadCaracteristicaFrag();
             ft.replace(R.id.fragment_container, frag);
             ft.commit();
         } else if (id == R.id.btnStart) {

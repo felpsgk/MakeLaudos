@@ -11,6 +11,7 @@ import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import java.io.File;
@@ -95,6 +96,14 @@ public class controllerPDF {
     private void addChildP(Paragraph childParagraph){
         childParagraph.setAlignment(Element.ALIGN_CENTER);
         paragraph.add(childParagraph);
+    }
+
+    public void addTableToDoc(PdfPTable tbl){
+        try {
+            document.add(tbl);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
     }
 
     public void addParagraph(String texto){

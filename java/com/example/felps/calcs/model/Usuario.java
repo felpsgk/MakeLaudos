@@ -7,15 +7,25 @@ public class Usuario implements Serializable {
     private String nome;
     private String documento;
     private String contato;
+    private int empresa;
 
     public Usuario() {
     }
 
-    public Usuario(int id, String nome, String documento, String contato) {
+    public Usuario(int id, String nome, String documento, String contato, int empresa) {
         this.id = id;
         this.nome = nome;
         this.documento = documento;
         this.contato = contato;
+        this.empresa = empresa;
+    }
+
+    public int getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(int empresa) {
+        this.empresa = empresa;
     }
 
     public int getId() {
